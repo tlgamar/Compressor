@@ -5,7 +5,7 @@ img = img_org
 
 res_l = (3840, 2160) # Resolution for 4k photo
 res_m = (1280, 720) # Resolution for 720p photo
-res_s = (640, 360) # Resolution for 480p photo
+res_s = (640, 360) # Resolution for 360p photo
 
 # Checking whether the given photo is 4k+ or not
 if(img.shape[0]>3840 or img.shape[1]>2160): # If the photo is larger than 4k resolution
