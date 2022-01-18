@@ -2,8 +2,8 @@ import cv2
 import glob
 
 def randomg(image):
-        img = cv2.imread(image)
-
+        img_org = cv2.imread(image)
+        img = img_org
 
         # for Images in path:
         #         img_org = cv2.imread(Images)
@@ -12,44 +12,40 @@ def randomg(image):
 
         print("check")
 
+        if(img.shape[0] > 3840):
+                static_1 = img.shape[0] / 3840
+                static_1_root = img.shape[1] / static_1
+        else:
+                static_1 = 3840 / img.shape[0]
+                static_1_root =  static_1 / img.shape[1]
 
+        if(img.shape[0] > 1280):
+                static_2 = img.shape[0] / 1280
+                static_2_root =  img.shape[1] / static_2 
+        else:
+                static_2 = 1280 / img.shape[0]
+                static_2_root =  static_2 / img.shape[1]   
 
-        # if(img.shape[0] > 3840):
-        #         static_1 = img.shape[0] / 3840
-        #         static_1_root = img.shape[1] / static_1
-        # else:
-        #         static_1 = 3840 / img.shape[0]
-        #         static_1_root =  static_1 / img.shape[1]
-
-        # if(img.shape[0] > 1280):
-        #         static_2 = img.shape[0] / 1280
-        #         static_2_root =  img.shape[1] / static_2 
-        # else:
-        #         static_2 = 1280 / img.shape[0]
-        #         static_1_root =  static_2 / img.shape[1]   
-
-        # if(img.shape[0] > 640):
-        #         static_3 = img.shape[0] / 640
-        #         static_3_root =  img.shape[1] / static_3
+        if(img.shape[0] > 640):
+                static_3 = img.shape[0] / 640
+                static_3_root =  img.shape[1] / static_3
                 
-        # else:
-        #         static_3 = 640 / img.shape[0]
-        #         static_3_root =  static_3 / img.shape[1]
+        else:
+                static_3 = 640 / img.shape[0]
+                static_3_root =  static_3 / img.shape[1]
 
 
 
-        res_l = (3840, static_1_root) # Resolution for 4k photo
+        res_l = (3840, int(static_1_root)) # Resolution for 4k photo
 
-        res_m = (1280, static_2_root) # Resolution for 720p photo
+        res_m = (1280, int(static_2_root)) # Resolution for 720p photo
 
-        res_s = (640, static_3_root) # Resolution for 480p photo
+        res_s = (640, int(static_3_root)) # Resolution for 480p photo
 
                 # Checking whether the given photo is 4k+ or not
         print("ceee")
         if(img.shape[0]>3840 or img.shape[1]>2160): # If the photo is larger than 4k resolution
                 # Making 4k photo
-
-
 
                 img = cv2.resize(img, res_l, interpolation = cv2.INTER_LINEAR)
                 img_const = img
