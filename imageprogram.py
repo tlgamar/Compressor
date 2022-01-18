@@ -12,35 +12,35 @@ def randomg(img_path):
 
         print("check")
 
-        if(img.shape[0] > 3840):
-                static_1 = img.shape[0] / 3840
-                static_1_root = img.shape[1] / static_1
-        else:
-                static_1 = img.shape[0] / 3840
-                static_1_root = img.shape[1] / static_1
+        # if(img.shape[0] > 3840):
+        #         static_1 = img.shape[0] / 3840
+        #         static_1_root = img.shape[1] / static_1
+        # else:
+        #         static_1 = img.shape[0] / 3840
+        #         static_1_root = img.shape[1] / static_1
 
-        if(img.shape[0] > 1280):
-                static_2 = img.shape[0] / 1280
-                static_2_root =   img.shape[1] / static_2
-        else:
-                static_2 = img.shape[0] / 1280
-                static_2_root = img.shape[1] / static_2
+        # if(img.shape[0] > 1280):
+        #         static_2 = img.shape[0] / 1280
+        #         static_2_root =   img.shape[1] / static_2
+        # else:
+        #         static_2 = img.shape[0] / 1280
+        #         static_2_root = img.shape[1] / static_2
 
-        if(img.shape[0] > 640):
-                static_3 = img.shape[0] / 640
-                static_3_root = img.shape[1] / static_3
+        # if(img.shape[0] > 640):
+        #         static_3 = img.shape[0] / 640
+        #         static_3_root = img.shape[1] / static_3
                 
-        else:
-                static_3 = 640 / img.shape[0]
-                static_3_root = img.shape[1] / static_3
+        # else:
+        #         static_3 = 640 / img.shape[0]
+        #         static_3_root = img.shape[1] / static_3
+        ration = img.shape[0]/img.shape[1]
 
 
+        res_l = (3840, int(3840*ration)) # Resolution for 4k photo
 
-        res_l = (3840, int(static_1_root)) # Resolution for 4k photo
+        res_m = (1280, int(1280*ration)) # Resolution for 720p photo
 
-        res_m = (1280, int(static_2_root)) # Resolution for 720p photo
-
-        res_s = (640, int(static_3_root)) # Resolution for 480p photo
+        res_s = (640, int(640*ration)) # Resolution for 480p photo
 
                 # Checking whether the given photo is 4k+ or not
         print("ceee")
