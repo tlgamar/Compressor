@@ -11,11 +11,9 @@ except:
 
 app = Flask(__name__)
 
-
 @app.route('/home', methods = ["GET"])
 def senHTML():
 	return render_template('index.html')
-
 
 @app.route('/upload', methods = ["POST"])
 def upload_image():
@@ -24,7 +22,4 @@ def upload_image():
 	img = randomg("tmp/"+image.filename)
 	return "Program is working"
 
-
-
 app.run(debug=True,port=2000)
-
