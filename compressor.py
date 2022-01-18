@@ -22,7 +22,7 @@ def senHTML():
 	return render_template('index.html')
 
 
-@app.route('/upload',methods = ["POST"])
+@app.route('/upload', methods = ["POST"])
 def upload_image():
 	image = request.files['file']
 	image.save("tmp/"+image.filename)
