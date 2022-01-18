@@ -14,6 +14,7 @@ if(img.shape[0]>3840 or img.shape[1]>2160): # If the photo is larger than 4k res
     img_const = img
     cv2.imwrite("Compressed Photos/4k_or_original/a.jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 100])
     
+    
     # Making 720p photo
     resized_m = cv2.resize(img, res_m, interpolation = cv2.INTER_AREA)
     cv2.imwrite("Compressed Photos/720p/a.jpg", resized_m, [cv2.IMWRITE_JPEG_QUALITY, 60])
