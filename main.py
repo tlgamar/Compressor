@@ -1,6 +1,6 @@
 from flask import Flask,request,render_template,redirect
 import os
-from imageprogram import randomg
+from compressor import randomg
 from werkzeug.utils import secure_filename
 import os
 
