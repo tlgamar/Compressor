@@ -2,6 +2,12 @@ from flask import Flask,request,render_template,redirect
 import os
 from imageprogram import randomg
 from werkzeug.utils import secure_filename
+import os
+
+try:
+	os.mkdir("tmp")
+except:
+	print("Already")
 
 app = Flask(__name__)
 
@@ -18,10 +24,10 @@ def senHTML():
 
 @app.route('/upload',methods = ["POST"])
 def upload_image():
-	image = request.files['file'].read()
-
-	return randomg(image)
- 
+	image = request.files['file']
+	image.save("tmp/"+image.filename)
+	img = randomg("tmp/"+image.filename)
+	return "ok"
 
 print("dddsdsdsdsd")
 

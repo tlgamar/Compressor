@@ -1,12 +1,12 @@
 import cv2
 import glob
 
-def randomg(image):
-        img_org = cv2.imread(image)
-        img = img_org
+def randomg(img_path):
 
+        img = cv2.imread(img_path)
+        img_org = img
+        print(img_path)
         # for Images in path:
-        #         img_org = cv2.imread(Images)
         #         img = img_org
         #         cv2.imshow("Image", img)
 
@@ -16,23 +16,23 @@ def randomg(image):
                 static_1 = img.shape[0] / 3840
                 static_1_root = img.shape[1] / static_1
         else:
-                static_1 = 3840 / img.shape[0]
-                static_1_root =  static_1 / img.shape[1]
+                static_1 = img.shape[0] / 3840
+                static_1_root = img.shape[1] / static_1
 
         if(img.shape[0] > 1280):
                 static_2 = img.shape[0] / 1280
-                static_2_root =  img.shape[1] / static_2 
+                static_2_root =   img.shape[1] / static_2
         else:
-                static_2 = 1280 / img.shape[0]
-                static_2_root =  static_2 / img.shape[1]   
+                static_2 = img.shape[0] / 1280
+                static_2_root = img.shape[1] / static_2
 
         if(img.shape[0] > 640):
                 static_3 = img.shape[0] / 640
-                static_3_root =  img.shape[1] / static_3
+                static_3_root = img.shape[1] / static_3
                 
         else:
                 static_3 = 640 / img.shape[0]
-                static_3_root =  static_3 / img.shape[1]
+                static_3_root = img.shape[1] / static_3
 
 
 
@@ -51,6 +51,7 @@ def randomg(image):
                 img_const = img
                 cv2.imwrite("Compressed Photos/4k_or_original/a.jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 100])
                 print("random")
+                
                         # Making 720p photo
                 resized_m = cv2.resize(img, res_m, interpolation = cv2.INTER_LINEAR)
                 cv2.imwrite("Compressed Photos/720p/a.jpg", resized_m, [cv2.IMWRITE_JPEG_QUALITY, 60])
