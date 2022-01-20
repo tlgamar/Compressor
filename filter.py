@@ -7,7 +7,6 @@ img_d = "Original Photos/11737.jpg"
 
 timestamp = os.path.getctime(img_d)
 
-
 foldername = datetime.fromtimestamp(timestamp).strftime("%d-%m-%Y")
 result = os.path.exists(foldername)
 if result == False:
