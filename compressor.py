@@ -1,5 +1,4 @@
 import cv2
-import glob
 import os
 from datetime import datetime
 
